@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Albuns</title>
+</head>
+<body>
+    <h1>Lista de álbuns</h1>
+    <ul id="lista"></ul>
+
+    <script>
+fetch("http://127.0.0.1:8000/api/albuns/")
+    .then((res) => res.json())
+    .then((albuns) => {
+        const lista = document.getElementById("lista");
+        albuns.forEach((a) => {
+            const item = document.createElement("li");
+            item.textContent = a.nome + " -avaliacao "+ a.avaliacao;
+            lista.appendChild(item);
+});
+});
+</script>
+</body>
+</html>
